@@ -8,7 +8,7 @@ const App = () => {
         <ContextProvider>
             <div className={cn(styles.App, styles.background)}>
                 <h1>Hello Abigail</h1>
-                <p>coming soon...</p>
+                <p>(coming soon...)</p>
             </div>
         </ContextProvider>
     );
