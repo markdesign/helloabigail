@@ -836,7 +836,7 @@ var App = function App() {
       children: [/*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
         children: "Hello Abigail"
       }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
-        children: "coming soon..."
+        children: "(coming soon...)"
       })]
     })
   });
