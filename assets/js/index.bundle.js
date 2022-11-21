@@ -745,14 +745,14 @@ var __webpack_exports__ = {};
 
 // EXTERNAL MODULE: ./node_modules/react-dom/client.js
 var client = __webpack_require__(745);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(294);
 ;// CONCATENATED MODULE: ./src/styles/reset.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const styles_reset = ({});
 ;// CONCATENATED MODULE: ./src/components/App.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const components_App = ({"App":"M2yoz8rs2Co84O3CJuYI","background":"xfhunqCwwU2YajZpektL"});
-// EXTERNAL MODULE: ./node_modules/react/index.js
-var react = __webpack_require__(294);
 // EXTERNAL MODULE: ./node_modules/prop-types/index.js
 var prop_types = __webpack_require__(697);
 var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
@@ -822,7 +822,8 @@ ContextProvider.propTypes = {
 // EXTERNAL MODULE: ./node_modules/classnames/index.js
 var classnames = __webpack_require__(184);
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-;// CONCATENATED MODULE: ./src/components/App.tsx
+;// CONCATENATED MODULE: ./src/components/App.js
+
 
 
 
@@ -830,6 +831,24 @@ var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 
 
 var App = function App() {
+  (0,react.useEffect)(function () {
+    var pointerMove = function pointerMove(event) {
+      var el = event.currentTarget,
+        x = event.clientX,
+        y = event.clientY;
+      var _el$getBoundingClient = el.getBoundingClientRect(),
+        t = _el$getBoundingClient.top,
+        l = _el$getBoundingClient.left,
+        w = _el$getBoundingClient.width,
+        h = _el$getBoundingClient.height;
+      el.style.setProperty('--posX', x - l - w / 2);
+      el.style.setProperty('--posY', y - t - h / 2);
+    };
+    document.body.addEventListener('pointermove', pointerMove);
+    return function () {
+      document.body.removeEventListener('pointermove', pointerMove);
+    };
+  }, []);
   return /*#__PURE__*/(0,jsx_runtime.jsx)(context_ContextProvider, {
     children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
       className: classnames_default()(components_App.App, components_App.background),
