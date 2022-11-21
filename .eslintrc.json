@@ -1,0 +1,39 @@
+{
+  // We are going to add support for the es6 global variables by setting es2022 to true.
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  // Here we utilize the recommended ESLint and plugin rules. We need to make sure to place Prettier last in order to override any rules that would cause conflict between Prettier and the other packages.
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  // We are selecting the @typescript-eslint/parser since our project has TypeScript.
+  "parser": "@typescript-eslint/parser",
+  // Since we are utilizing React, we are wanting to turn on jsx. We are also going to add support for the latest ecma syntax by setting ecmaVersion to latest.
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  // We are needing to modify some of the rules for these plugins which is why we included them here.
+  "plugins": ["react", "@typescript-eslint"],
+  // We are wanting to setting the react version here in order to avoid the react warning of not having a version specified. We can place an exact version of react but for now we can leave it as the value shown.
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    }
+  },
+  // Since we are using the jsx transform, we can disable the specific rules listed.
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
